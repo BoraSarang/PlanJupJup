@@ -19,7 +19,7 @@ android {
     signingConfigs {
         create("release") {
             val store = System.getenv("KEYSTORE_PATH")
-            if (store != null) {
+            if (!store.isNullOrBlank()) {
                 storeFile = file(store)
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
                 keyAlias = System.getenv("KEY_ALIAS")
@@ -31,7 +31,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            if (System.getenv("KEYSTORE_PATH") != null) {
+            if (System.getenv("KEYSTORE_PATH").orEmpty().isNotBlank()) {
                 signingConfig = signingConfigs.getByName("release")
             }
         }
