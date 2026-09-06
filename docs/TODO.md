@@ -2,6 +2,15 @@
 
 > 규칙: 1커밋 1관심사, 완료 시 체크 + 세션 로그 갱신. bd 미사용(저장소 없음) — 본 파일이 단일 진실.
 
+## v1.4 GitHub 공개 (2026-09-06, PLAN_v1.4_web_github)
+
+- [ ] G-101 README 개편(배지·기능·구조·링크)
+- [ ] G-102 랜딩 페이지 landing/ 제작 + 실기 스크린샷 캡처
+- [ ] G-103 CI 워크플로우(빌드·테스트·lint)
+- [ ] G-104 Release 워크플로우(tag v* → APK Release) + 조건부 사이닝
+- [ ] G-105 Pages 워크플로우 + Pages Source 설정(gh api) + 배포 확인
+- [ ] G-106 원격 push(main) + CHANGELOG·세션 로그 갱신
+
 ## v1.3.1 포털 개선 (2026-09-06, PLAN_v1.3.1_android)
 
 - [x] P-101 모바일 깨짐 수정: 그리드 min-width:0 체인 + 차트/그리드 auto-fit(minmax(0,1fr)) + 모바일 규칙

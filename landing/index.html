@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="알뜰요금줍줍(PlanJupJup) — 갤럭시 S22를 서버로 삼아 알뜰폰 요금제를 자동 수집하고 웹 포털로 보여주는 단일 Android 앱.">
+<title>알뜰요금줍줍 PlanJupJup — 알뜰폰 요금제 자동 수집 포털</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">📱</span>
+      <span class="brand-text">알뜰요금줍줍</span>
+    </a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="#features">기능</a>
+      <a href="#sources">수집 소스</a>
+      <a href="#usage">사용 방법</a>
+      <a href="https://github.com/BoraSarang/PlanJupJup" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav-cta" href="https://github.com/BoraSarang/PlanJupJup/releases" target="_blank" rel="noopener">APK 받기</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="hero-kicker">갤럭시 S22 = 요금제 수집 서버</p>
+      <h1 class="hero-title">알뜰폰 요금제를<br><span class="accent">자동으로 주워 담는</span> 앱</h1>
+      <p class="hero-sub">
+        설치해 두면 하루 6시간 간격으로 주요 알뜰폰 브랜드의 요금제를 자동 수집합니다.
+        같은 네트워크 안에서는 브라우저로 언제든 통계와 요금제를 확인할 수 있어요.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/BoraSarang/PlanJupJup/releases" target="_blank" rel="noopener">APK 다운로드</a>
+        <a class="btn btn-ghost" href="https://github.com/BoraSarang/PlanJupJup" target="_blank" rel="noopener">소스 코드 보기</a>
+      </div>
+      <ul class="hero-meta">
+        <li>구동: <b>Android 단일 앱</b></li>
+        <li>수집: <b>4개 소스 활성 + LG헬로모바일 준비 중</b></li>
+        <li>포털: <b>http://&lt;S22 IP&gt;:3000/</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="wrap">
+      <h2 class="section-title">핵심 기능</h2>
+      <p class="section-sub">설치 한 번이면, 수집부터 탐색까지 다 알아서.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="card-emoji" aria-hidden="true">🔄</div>
+          <h3>자동 수집 스케줄</h3>
+          <p>WorkManager 기반 6시간 간격 워치독. 지정 브랜드별 개별 주기로 필요한 요금제만 골라 수집합니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-emoji" aria-hidden="true">📊</div>
+          <h3>통계 대시보드</h3>
+          <p>가격대·데이터 용량 분포, 통신사 점유, 수집 추이, 가성비 TOP10, 수집 건강도와 자동 인사이트를 차트로 제공합니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-emoji" aria-hidden="true">🔍</div>
+          <h3>자연어·초성 검색</h3>
+          <p><code>"5만원 이하"</code>, <code>"10기가"</code>, <code>"무제한"</code>처럼 자연스러운 조건과 <code>ㄱㅅㅂ</code> 같은 초성도 그대로 검색됩니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-emoji" aria-hidden="true">📱</div>
+          <h3>모바일 우선 포털</h3>
+          <p>요금제 탭·큐레이션 태그·통계 목차 내비게이션. S22 실기 기준 가로 넘침 없이 최적화한 반응형 UI.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title">수집 소스</h2>
+      <p class="section-sub">요금제가 갱신되면, 다음 수집 주기에 자동 반영됩니다.</p>
+      <div class="table-scroll">
+        <table class="src-table">
+          <thead>
+            <tr><th>소스</th><th>방식</th><th>주기</th><th>상태</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>알뜰폰허브</td><td>HTML 카드 파싱</td><td>6h</td><td><span class="pill pill-on">활성</span></td></tr>
+            <tr><td>모요</td><td>/plans SSR 카드 파싱</td><td>6h</td><td><span class="pill pill-on">활성</span></td></tr>
+            <tr><td>KT엠모바일 공식</td><td>2단계 AJAX JSON</td><td>12h</td><td><span class="pill pill-on">활성</span></td></tr>
+            <tr><td>LG헬로모바일 공식</td><td>HTML 파싱</td><td>12h</td><td><span class="pill pill-wait">준비 중</span></td></tr>
+            <tr><td>브랜드 목록</td><td>brand.do → carrier_brands</td><td>주 1회</td><td><span class="pill pill-on">활성</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title">실행 화면</h2>
+      <p class="section-sub">갤럭시 S22 실기에서 캡처한 포터입니다. (홈 / 통계 대시보드)</p>
+      <div class="shots">
+        <figure class="shot">
+          <img src="assets/shot_home_desktop.png" alt="요금제 목록 포털 홈 화면" loading="lazy">
+          <figcaption>요금제 목록 · 필터 · 자연어 검색</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shot_stats_desktop.png" alt="통계 대시보드 화면" loading="lazy">
+          <figcaption>통계 대시보드 · 분포 · 가성비 TOP10</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shot_home_mobile.png" alt="모바일 홈 화면" loading="lazy">
+          <figcaption>모바일 최적화 홈</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shot_stats_mobile.png" alt="모바일 통계 화면" loading="lazy">
+          <figcaption>모바일 통계 탭</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="usage" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title">사용 방법</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <div><h3>APK 설치</h3><p>Release에서 최신 APK를 받아 설치합니다. 서버 포트는 설정에서 변경할 수 있습니다(기본 3000).</p></div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div><h3>자동 수집 시작</h3><p>앱이 백그라운드에서 스케줄에 맞춰 요금제를 수집합니다. 수동으로 즉시 수집할 수도 있어요.</p></div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div><h3>웹 포털 접속</h3><p>같은 Wi-Fi의 브라우저에서 <code>http://&lt;S22 IP&gt;:3000/</code>에 접속해 탐색합니다.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title">문서와 링크</h2>
+      <div class="links">
+        <a href="https://github.com/BoraSarang/PlanJupJup" target="_blank" rel="noopener">GitHub 저장소</a>
+        <a href="https://github.com/BoraSarang/PlanJupJup/releases" target="_blank" rel="noopener">Release / APK</a>
+        <a href="https://github.com/BoraSarang/PlanJupJup/blob/main/docs/DESIGN.md" target="_blank" rel="noopener">디자인 문서</a>
+        <a href="https://github.com/BoraSarang/PlanJupJup/blob/main/docs/api/ENDPOINTS.md" target="_blank" rel="noopener">API 명세</a>
+        <a href="https://github.com/BoraSarang/PlanJupJup/blob/main/docs/CHANGELOG.md" target="_blank" rel="noopener">변경 이력</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>📱 알뜰요금줍줍 <b>PlanJupJup</b></p>
+    <p class="footer-meta">Made by <a href="https://github.com/BoraSarang" target="_blank" rel="noopener">BoRaSaRang</a> · 번들 ID <code>com.borasarang.planjupjup</code></p>
+  </div>
+</footer>
+
+</body>
+</html>
