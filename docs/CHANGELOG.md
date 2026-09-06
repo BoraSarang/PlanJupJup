@@ -2,6 +2,21 @@
 
 > 형식: `[버전] 날짜 (platform: android)` + error_code + perf/cache 영향 기록
 
+## [v1.4] 2026-09-06 (platform: android|web|github)
+
+- GitHub 공개 준비: README 전면 개편(배지·기능·구조·사용법·시크릿 사이닝 안내)
+- 랜딩 페이지 `landing/` + GitHub Pages 배포(https://borasarang.github.io/PlanJupJup/)
+  — 실기 S22 스크린샷 4종 캡처 포함, 순수 정적(의존성 0)
+- GitHub Actions 신규 3종: `ci.yml`(단위 테스트+lint, JDK17), `pages.yml`(랜딩 배포),
+  `release.yml`(v* 태그 push → assembleRelease + GitHub Release 자동 생성, CHANGELOG 섹션 본문)
+- 릴리즈 사이닝 조건부 지원: `KEYSTORE_PATH` env 미설정 시 unsigned, 시크릿(KEYSTORE_BASE64 등) 설정 시 서명 —
+  빌드 스크립트는 시크릿 값 미포함
+- 첫 원격 push: https://github.com/BoraSarang/PlanJupJup (커밋 21348d3, 027503f, b59d666, dd0224a, 0be3a83)
+- 기기(S22)에 릴리즈 1.0.0 설치 완료(debug 키스토어 서명, 데이터 유지, 포털 200)
+- CI 플래키 테스트 안정화: `millisUntilNextHour` 내부 now 밀리초 언더슈트로 `ScheduleLogicTest` 실패
+  → 목표 시각 기준 언더슈트(1초)/오버슈트(1분) 허용으로 수정 (KST·UTC 양쪽 통과)
+- perf/cache: 영향 없음. CI 캐시는 gradle/actions/setup-gradle 제공
+
 ## [v1.3.1] 2026-09-06 (platform: android)
 
 - 포털 모바일 최적화: 통계 대시보드 가로 초과(S22 360px) 수정 — `.main`/`.stats-section`/
