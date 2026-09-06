@@ -59,9 +59,18 @@ class ScheduleLogicTest {
         val delay = TimeUtils.millisUntilNextHour(9)
         assertTrue(delay in 0..TimeUtils.MILLIS_PER_DAY)
 
-        val arrive = java.util.Calendar.getInstance().apply { timeInMillis = now.timeInMillis + delay }
-        assertEquals(9, arrive.get(java.util.Calendar.HOUR_OF_DAY))
-        assertEquals(0, arrive.get(java.util.Calendar.MINUTE))
+        // 목표 시각 기준 1분 오차 이내로 도착 (내부 now 밀리초 언더슈트 허용)
+        val arrive = now.timeInMillis + delay
+        val target = java.util.Calendar.getInstance().apply {
+            timeInMillis = now.timeInMillis
+            set(java.util.Calendar.HOUR_OF_DAY, 9)
+            set(java.util.Calendar.MINUTE, 0)
+            set(java.util.Calendar.SECOND, 0)
+            set(java.util.Calendar.MILLISECOND, 0)
+            if (!after(now)) add(java.util.Calendar.DAY_OF_YEAR, 1)
+        }.timeInMillis
+        assertTrue(arrive >= target)
+        assertTrue(arrive < target + 60_000)
 
         val late = TimeUtils.millisUntilNextHour(now.get(java.util.Calendar.HOUR_OF_DAY))
         assertTrue(late > 0)
