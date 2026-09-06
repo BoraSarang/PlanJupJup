@@ -4,12 +4,12 @@
 
 ## v1.4 GitHub 공개 (2026-09-06, PLAN_v1.4_web_github)
 
-- [ ] G-101 README 개편(배지·기능·구조·링크)
-- [ ] G-102 랜딩 페이지 landing/ 제작 + 실기 스크린샷 캡처
-- [ ] G-103 CI 워크플로우(빌드·테스트·lint)
-- [ ] G-104 Release 워크플로우(tag v* → APK Release) + 조건부 사이닝
-- [ ] G-105 Pages 워크플로우 + Pages Source 설정(gh api) + 배포 확인
-- [ ] G-106 원격 push(main) + CHANGELOG·세션 로그 갱신
+- [x] G-101 README 개편(배지·기능·구조·링크)
+- [x] G-102 랜딩 페이지 landing/ 제작 + 실기 스크린샷 캡처
+- [x] G-103 CI 워크플로우(빌드·테스트·lint) — CI v4 플래키 테스트 수정 후 green
+- [x] G-104 Release 워크플로우(tag v* → APK Release) + 조건부 사이닝 — v1.0.0 릴리즈 생성
+- [x] G-105 Pages 워크플로우 + Pages Source 설정(gh api) + 배포 확인(HTTP 200)
+- [x] G-106 원격 push(main) + CHANGELOG·세션 로그 갱신
 
 ## v1.3.1 포털 개선 (2026-09-06, PLAN_v1.3.1_android)
 
