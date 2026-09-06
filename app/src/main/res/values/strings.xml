@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_launcher">요금줍줍</string>
+    <string name="app_name_full">알뜰요금줍줍</string>
+
+    <string name="notif_channel_server">서버 실행 상태</string>
+    <string name="notif_server_running">요금줍줍 서버 실행 중</string>
+    <string name="notif_server_starting">요금줍줍 서버 시작 중…</string>
+    <string name="notif_crawl_running">요금제 수집 중</string>
+
+    <string name="nav_home">홈</string>
+    <string name="nav_source">수집 소스</string>
+    <string name="nav_notif">알림</string>
+    <string name="nav_settings">설정</string>
+
+    <string name="maker">BoRaSaRang</string>
+    <string name="contact">leeborasarang@gmail.com</string>
+</resources>
